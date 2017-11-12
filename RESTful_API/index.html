@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <style>
+        .card {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center">
+        <div class="card">
+            <label>
+                <h2>Get request</h2>
+                Enter page number 
+                <input id="text" type="number">
+                <input id="get-button" type="button" value="GET">
+            </label>
+        </div>
+        <div class="card">
+            <label>
+                <h2>Post request</h2>
+                 No need for num 
+                <input id="postnum" type="number" disabled>
+                <input id="post-button" type="button" value="POST">
+                <br>
+                New data: 
+                <br>
+                TITLE: <input id="posttitle" type="text"> <br>
+                BODY: <input id="postbody" type="text"> <br>
+            </label>
+        </div>
+        <div class="card">
+            <label>
+                <h2>Put request</h2>
+                 Enter post number 
+                <input id="putnum" type="number">
+                <input id="put-button" type="button" value="POST">
+                <br>
+                New data: 
+                <br>
+                TITLE: <input id="puttitle" type="text"> <br>
+                BODY: <input id="putbody" type="text"> <br>
+            </label>
+        </div>
+        <div class="card">
+            <h2>Result</h2>
+            <p id="id"></p>
+            <p id="title"></p>
+            <p id="body"></p>
+        </div>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
+</html>

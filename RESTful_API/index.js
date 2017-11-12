@@ -1,42 +1,53 @@
-import axios from 'axios';
+import Get from './get';
+import Post from './post';
+import Put from './put';
+import Patch from './patch';
+import Delete from './delete';
+import Render from './render';
 
-// proveravam status i returnujem promise
-function status(response) {
-    if (response.status >= 200 && response.status < 300) {
-        return Promise.resolve(response)
-    } else {
-        return Promise.reject(new Error(response.statusText))
+class Index {
+    // proveravam status i returnujem promise
+    status(response) {
+        if (response.status >= 200 && response.status < 300) {
+            return Promise.resolve(response)
+        } else {
+            return Promise.reject(new Error(response.statusText))
+        }
+    }
+    // parsiram response u JSON format, potrebno za FETCH ali ne i za AXIOS
+    json(response) {
+        return response.json();
+    }
+
+    initiateListeners() {
+        document.getElementById('get-button').addEventListener('click', () => {
+            let value = document.getElementById('text').value;
+            new Get().makeRequest(this.grabData, value);
+        });
+
+        document.getElementById('post-button').addEventListener('click', () => {
+            let page = document.getElementById('postnum').value;
+            let title = document.getElementById('posttitle').value;
+            let body = document.getElementById('postbody').value;
+
+            let postData = { page, title, body };
+            new Post().makeRequest(postData);
+        });
+
+        document.getElementById('put-button').addEventListener('click', () => {
+            let page = document.getElementById('putnum').value;
+            let title = document.getElementById('puttitle').value;
+            let body = document.getElementById('putbody').value;
+
+            let putData = { page, title, body }
+            new Put().makeRequest(putData);
+        });
+    }
+
+    grabData(data) {
+        let render = new Render(data);
+        render.renderData();
     }
 }
-// parsiram response u JSON format
-function json(response) {
-    return response.json()
-}
 
-// Postavka za GET request
-axios({
-    method: 'GET',
-    url: 'https://jsonplaceholder.typicode.com/posts',
-})
-.then(status)
-.then(json)
-.then(data => console.log(data))
-.catch(error => console.log(error));
-
-// Pravim custom POST request sa svim parametrima
-axios({
-    method: 'POST',
-    url: 'https://jsonplaceholder.typicode.com/posts',
-    headers: {"Content-type": "application/json; charset=UTF-8"},
-    responseType: 'json',
-    data: JSON.stringify({
-      title: 'My First POST Request',
-      body: 'It worked!',
-      userId: 1,
-    })
-})
-.then(status)
-.then(json)
-.then(data => console.log(data))
-.catch(error => console.log('Fetch Error :-S', error));
-
+new Index().initiateListeners();
