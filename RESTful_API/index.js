@@ -5,7 +5,7 @@ import Patch from './patch';
 import Delete from './delete';
 import Render from './render';
 
-class Index {
+class Index { 
     // proveravam status i returnujem promise
     status(response) {
         if (response.status >= 200 && response.status < 300) {
