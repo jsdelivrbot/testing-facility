@@ -2,7 +2,7 @@ import axios from 'axios';
 // Postavka za GET request
 class Get {
 
-    makeRequest(handler, param) {
+    makeRequest(handler,param) {
 
         axios({
             method: 'GET',
