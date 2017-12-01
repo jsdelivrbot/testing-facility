@@ -1,1 +1,17 @@
-node_modules
+# General 
+/node_modules
+npm-debug.log
+.DS_Store
+bundle.js
+/dist
+
+# IntelliJ
+*.iml
+/.idea
+
+# Visual Studio Code 
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

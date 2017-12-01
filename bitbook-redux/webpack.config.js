@@ -1,30 +1,26 @@
+const path = require('path');
+const webpack = require('webpack');
+
 module.exports = {
-    entry: __dirname + "/src/index",
-    target: "web",
-    output: {
-        filename: "bundle.js",
-        publicPath: "/"
-    },
-    devServer: {
-        contentBase: __dirname + "/src"
-    },
-    module: {
-        loaders: [
-            {
-                enforce: "pre",
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: "eslint-loader",
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loaders: ["babel-loader"]
-            },
-            {
-                test: /(\.css)$/,
-                loaders: ["style", "css"]
-            }
-        ]
-    }
+  context: path.resolve(__dirname, 'src'),
+  entry: {
+    app: './index.js'
+  },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/i,
+        exclude: [/node_modules/],
+        use: [{
+          loader: 'babel-loader',
+          options: { presets: ['env'] }
+        }],
+      },
+    ],
+  }
 };
