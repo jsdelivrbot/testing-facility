@@ -1,0 +1,7 @@
+@import url('./materialize.css');
+
+.form-body {
+  border: 1px solid #28587B;
+  border-radius: 10px;
+  padding: 10px;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import WelcomeContainer from './welcomeContainer';
+import WelcomeContainer from './welcomeScreen/welcomeContainer';
 
 export default class App extends Component {
   render() {

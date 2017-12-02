@@ -1,4 +1,4 @@
-const form = (state = {}, action) => {
+export const form = (state = {}, action) => {
     switch (action.type) {
         case 'SUBMIT_FORM':
             return Object.assign({}, ...state, {
@@ -10,3 +10,4 @@ const form = (state = {}, action) => {
             return state;
     }
 }
+
