@@ -1,0 +1,30 @@
+.search-list {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    background-color: rgb(243, 230, 208);
+    width: 100%;
+    z-index: 1;
+}
+
+.search-list-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.search-list-item:hover {
+    background-color: black;
+    color: white;
+    transition: all 0.5s;
+}
+
+.search-list-item {
+    color: black;
+    background-color: white;
+    transition: all 0.5s;
+}
+
+.search-link-item {
+   display: block;
+}
