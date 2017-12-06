@@ -5,3 +5,12 @@
 .badge-size {
     font-size: 100%;
 }
+
+.title-bar {
+    padding: 10px;
+}
+
+.main-div {
+    background-size: cover;
+    background-repeat: no-repeat;
+}

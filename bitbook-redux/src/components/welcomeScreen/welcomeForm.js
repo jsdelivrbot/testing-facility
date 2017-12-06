@@ -12,6 +12,7 @@ const WelcomeForm = ({ onSubmit, confirmation }) => {
                 </div>
             </div>
             <div className='row'>
+            <div>{confirmation.username}</div>
                 <form id='login' className='col s12' onSubmit={e => {
                     e.preventDefault();
                     onSubmit({

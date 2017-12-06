@@ -6,8 +6,9 @@ import './MoviePreview.css';
 
 const MoviePreview = props => {
 
-    let source = 'http://via.placeholder.com/500x1000'
-    const { image, name, id } = props.movie.show;
+    const { image, name, id } = props;
+    let source = 'http://via.placeholder.com/500x700';
+    
     if (image) {
         source = image.medium;
     }
@@ -33,7 +34,9 @@ const MoviePreview = props => {
 };
 
 MoviePreview.propTypes = {
-    movie: PropTypes.object.isRequired
+    image: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
 };
 
 

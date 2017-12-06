@@ -21,7 +21,7 @@ class Main extends Component {
     fetchAllMovies() {
         const config = {
             method: 'get',
-            url: 'http://api.tvmaze.com/schedule/?country=US',
+            url: 'http://api.tvmaze.com/shows',
             headers: { 'Content-Type': 'application/json' }
         }
 
@@ -34,7 +34,7 @@ class Main extends Component {
     displayMovies() {
         return (
             this.state.movies.map(movie => 
-                <MoviePreview movie={movie} key={movie.id} />
+                <MoviePreview {...movie} key={movie.id} />
             )
         )
     }
@@ -47,6 +47,7 @@ class Main extends Component {
     render() {
         return (
             <main className='container'>
+            <h1 className="display-4 text-center">Featured Shows</h1>
                 <div className='row'>
                     {this.displayMovies()}
                 </div>

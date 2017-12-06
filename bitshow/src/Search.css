@@ -14,15 +14,15 @@
 }
 
 .search-list-item:hover {
-    background-color: black;
+    background-color: rgb(68, 68, 68);
     color: white;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .search-list-item {
     color: black;
     background-color: white;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .search-link-item {
