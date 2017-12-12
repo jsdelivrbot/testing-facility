@@ -1,1 +1,0 @@
-# BitBook implementation using Redux
