@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes cubicle {
+            0% {
+                background-color: rgb(222, 132, 76);
+                left: 0px;
+                top: 0px;
+                width: 210px;
+            }
+            10% {
+                transform: rotate(180deg);
+                background-color: rgb(13, 13, 191);
+                left: 300px;
+                top: 50px;
+                height: 20px;
+            }
+            21% {
+                background-color: purple;
+                left: 180px;
+                top: 225px;
+            }
+            43% {
+                transform: rotate(-90deg);
+                background-color: black;
+                left: 21px;
+                top: 180px;
+                height: 165px;
+            }
+            50% {
+                transform: rotate(270deg);
+                background-color: orange;
+                left: 200px;
+                top: 20px;
+                width: 140px;
+            }
+            61% {
+                background-color: black;
+                left: 150px;
+                top: 185px;
+            }
+            70% {
+                transform: rotate(-90deg);
+                background-color: rgb(233, 57, 57);
+                left: 25px;
+                top: 300px;
+            }
+            86% {
+                background-color: rgb(44, 44, 154);
+                left: 100px;
+                top: 120px;
+                width: 40px;
+                height: 150px;
+            }
+            100% {
+                transform: rotate(-180deg);
+                background-color: cyan;
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        #cubicle {
+            width: 100px;
+            height: 100px;
+            margin: 100px;
+            position: relative;
+            background-color: cyan;
+            animation-name: cubicle;
+            animation-duration: 5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            /* animation: cubicle 5s ease-in-out infinite alternate */
+        }
+    </style>
+</head>
+
+<body>
+    <div id='cubicle'></div>
+</body>
+
+</html>
