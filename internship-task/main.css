@@ -1,0 +1,49 @@
+.body {
+  width: 500px;
+  height: 500px;
+}
+
+.cube {
+  position: relative;
+  background-color: moccasin;
+  margin: 100px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  -webkit-transition: -webkit-transform, opacity 1s ease;
+  -moz-transition: -webkit-transform, opacity 1s ease;
+  -o-transition: -webkit-transform, opacity 1s ease;
+  -ms-transition: -webkit-transform, opacity 1s ease;
+  transition: transform, opacity 1s ease;
+
+}
+
+.rotate {
+  position: relative;
+  background-color: moccasin;
+  margin: 100px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  -webkit-transform: rotateX(360deg);
+  -webkit-transition: -webkit-transform 1s ease;
+  -moz-transition: -webkit-transform 1s ease;
+  -o-transition: -webkit-transform 1s ease;
+  -ms-transition: -webkit-transform 1s ease;
+  transform: rotateX(360deg);
+  transition: transform 1s ease;
+}
+
+.fade {
+    position: relative;
+    background-color: moccasin;
+    margin: 100px;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    -o-transition: opacity 1s ease;
+    -ms-transition: opacity 1s ease;
+    transition: opacity 1s ease;
+}
