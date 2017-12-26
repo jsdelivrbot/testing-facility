@@ -1,7 +1,10 @@
-export default function({ dispatch }) {
-    return next => action => {
-        console.log(action);
+export default ({ dispatch }) => next => action => {
 
-        next(action);
+        if (!action.payload || !action.payload.then) {
+            return next(action);
+        }
+
+        action.payload
+            .then(response => dispatch({ ...action, payload: response }));
+
     }
-}

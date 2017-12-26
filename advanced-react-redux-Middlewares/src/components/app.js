@@ -11,13 +11,13 @@ class App extends Component {
   render() {
     return (
       <ul>
-        {this.props.users.map(user => <li>{user.name}</li>)}
+        {this.props.users.map(user => <li key={user.id}>{user.name}</li>)}
       </ul>
     );
   }
 }
 
-mapStateToProps({ users }) {
+function mapStateToProps({ users }) {
   return { users }
 }
 
