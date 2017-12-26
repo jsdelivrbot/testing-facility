@@ -12,4 +12,15 @@ const add = (a, b) => {
   return inner;
 };
 
+const add = (a, b) => {
+  if (b) {
+    return a + b;
+  }
+
+  const inner = c => a + c;
+
+  return inner;
+}
+
 console.log(add(5)(4));
+console.log(add(5, 4));
