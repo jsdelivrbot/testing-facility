@@ -59,7 +59,7 @@ const validateNumbers = value => {
 	return true;
 };
 
-const handleEnd = ({ renderedSteps, steps, values }) => console.info({ renderedSteps, steps, values });
+const handleEnd = ({ renderedSteps, values }) => console.info({ renderedSteps, values });
 
 let style = {
     backgroundColor: 'seashell'
@@ -160,7 +160,7 @@ const Chatbot = () => (
 	<ChatBot
         steps={steps}
         handleEnd={handleEnd}
-		headerTitle={'Moj prvi bot'}
+		headerTitle={'Klasican bot'}
         placeholder={'Pisi ovde...'}
         style={style}
 	/>
