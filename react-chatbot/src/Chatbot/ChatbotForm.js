@@ -1,6 +1,27 @@
 import React, { Component } from 'react';
 import ChatBot from 'react-simple-chatbot';
 
+const style = {
+	body: {
+		backgroundColor: 'seashell'
+	},
+	ul: {
+		listStyle: 'none',
+		padding: '0',
+		margin: '0',
+		textAlign: 'left'
+	},
+	h3: {
+		margin: '0',
+		padding: '5px 0',
+		textAlign: 'center'
+	},
+	div: {
+		width: '100%',
+		fontFamily: 'Avenir'
+	}
+};
+
 class Review extends Component {
 	constructor(props) {
 		super(props);
@@ -22,24 +43,9 @@ class Review extends Component {
 		const { ime, visina, tezina } = this.state;
 
 		return (
-			<div style={{ width: '100%' }}>
-				<h3
-					style={{
-						margin: '0',
-						padding: '5px 0',
-						textAlign: 'center'
-					}}
-				>
-					Summary:
-				</h3>
-				<ul
-					style={{
-						listStyle: 'none',
-						padding: '0',
-						margin: '0',
-						textAlign: 'left'
-					}}
-				>
+			<div style={style.div}>
+				<h3 style={style.h3}>Podaci:</h3>
+				<ul style={style.ul}>
 					<li>ime: {ime.value}</li>
 					<li>visina: {visina.value}cm</li>
 					<li>tezina: {tezina.value}kg</li>
@@ -50,6 +56,9 @@ class Review extends Component {
 }
 
 const validateNumbers = value => {
+	if (!value) {
+		return 'Obavezno polje';
+	}
 	if (isNaN(value)) {
 		return 'Unesi broj molim te';
 	}
@@ -59,13 +68,20 @@ const validateNumbers = value => {
 	return true;
 };
 
-const handleEnd = ({ renderedSteps, values }) => console.info({ renderedSteps, values });
+const validateName = value => {
+	if (!value) {
+		return 'Ne moguce da nemas ime';
+	}
+	if (!isNaN(value)) {
+		return 'Samo slova molicu lepo';
+	}
+	return true;
+};
 
-let style = {
-    backgroundColor: 'seashell'
-}
+const handleEnd = ({ renderedSteps, values }) =>
+	console.info({ renderedSteps, values });
 
-let steps = [
+const steps = [
 	{
 		id: '1',
 		message: 'Kako se zoves?',
@@ -74,6 +90,7 @@ let steps = [
 	{
 		id: 'ime',
 		user: true,
+		validator: validateName,
 		trigger: '3'
 	},
 	{
@@ -158,11 +175,11 @@ let steps = [
 
 const Chatbot = () => (
 	<ChatBot
-        steps={steps}
-        handleEnd={handleEnd}
+		steps={steps}
+		handleEnd={handleEnd}
 		headerTitle={'Klasican bot'}
-        placeholder={'Pisi ovde...'}
-        style={style}
+		placeholder={'Pisi ovde...'}
+		style={style}
 	/>
 );
 
