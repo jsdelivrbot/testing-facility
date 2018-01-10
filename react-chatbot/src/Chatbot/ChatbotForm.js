@@ -55,28 +55,33 @@ class Review extends Component {
 	}
 }
 
-const validateNumbers = value => {
-	if (!value) {
-		return 'Obavezno polje';
-	}
-	if (isNaN(value)) {
-		return 'Unesi broj molim te';
-	}
-	if (value < 0) {
-		return 'Necemo negativne brojeve';
-	}
-	return true;
-};
+const validate = () => {
 
-const validateName = value => {
-	if (!value) {
-		return 'Ne moguce da nemas ime';
+	const numbers = value => {
+		if (!value) {
+			return 'Obavezno polje';
+		}
+		if (isNaN(value)) {
+			return 'Unesi broj molim te';
+		}
+		if (value < 0) {
+			return 'Necemo negativne brojeve';
+		}
+		return true;
 	}
-	if (!isNaN(value)) {
-		return 'Samo slova molicu lepo';
-	}
-	return true;
-};
+
+	const name = value => {
+		if (!value) {
+			return 'Ne moguce da nemas ime';
+		}
+		if (!isNaN(value)) {
+			return 'Samo slova molicu lepo';
+		}
+		return true;
+	};
+
+	return { numbers, name }
+}
 
 const handleEnd = ({ renderedSteps, values }) =>
 	console.info({ renderedSteps, values });
@@ -90,7 +95,7 @@ const steps = [
 	{
 		id: 'ime',
 		user: true,
-		validator: validateName,
+		validator: validate().name,
 		trigger: '3'
 	},
 	{
@@ -101,7 +106,7 @@ const steps = [
 	{
 		id: 'visina',
 		user: true,
-		validator: validateNumbers,
+		validator: validate().numbers,
 		trigger: '5'
 	},
 	{
@@ -112,7 +117,7 @@ const steps = [
 	{
 		id: 'tezina',
 		user: true,
-		validator: validateNumbers,
+		validator: validate().numbers,
 		trigger: '7'
 	},
 	{
