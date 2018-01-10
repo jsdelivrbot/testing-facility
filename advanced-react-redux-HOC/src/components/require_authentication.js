@@ -19,14 +19,10 @@ export default function(ComposedComponent) {
             }
         }
 
-        render() {
-            return <ComposedComponent {...this.props}/>
-        }
+        render = () => <ComposedComponent {...this.props}/>
     }
 
-    function mapStateToProps({ authenticated }) {
-        return { authenticated };
-    }
+    const mapStateToProps = ({ authenticated }) => ({ authenticated });
 
     return connect(mapStateToProps)(Authentication);
 }
