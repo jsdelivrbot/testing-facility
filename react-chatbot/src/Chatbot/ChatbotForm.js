@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object } from 'prop-types';
 import ChatBot from 'react-simple-chatbot';
 
 const style = {
@@ -23,14 +24,18 @@ const style = {
 };
 
 class Review extends Component {
-	constructor(props) {
-		super(props);
+	state = {
+		ime: '',
+		visina: '',
+		tezina: ''
+	};
 
-		this.state = {
-			ime: '',
-			visina: '',
-			tezina: ''
-		};
+	static propTypes = {
+		steps: object.isRequired
+	}
+
+	static defaultProps = {
+		steps: {}
 	}
 
 	componentWillMount() {
@@ -56,7 +61,6 @@ class Review extends Component {
 }
 
 const validate = () => {
-
 	const numbers = value => {
 		if (!value) {
 			return 'Obavezno polje';
@@ -68,7 +72,7 @@ const validate = () => {
 			return 'Necemo negativne brojeve';
 		}
 		return true;
-	}
+	};
 
 	const name = value => {
 		if (!value) {
@@ -80,8 +84,8 @@ const validate = () => {
 		return true;
 	};
 
-	return { numbers, name }
-}
+	return { numbers, name };
+};
 
 const handleEnd = ({ renderedSteps, values }) =>
 	console.info({ renderedSteps, values });
